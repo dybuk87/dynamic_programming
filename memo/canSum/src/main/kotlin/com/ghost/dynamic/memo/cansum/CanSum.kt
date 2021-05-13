@@ -6,7 +6,7 @@ fun canSum(targetSum: Int, numbers: List<Int>, memo: MutableMap<Int, Boolean> = 
         targetSum < 0 -> false
         targetSum == 0 -> true
         else -> {
-            val result = numbers.firstOrNull { canSum(targetSum - it, numbers, memo) }?.let { true } ?: false
+            val result = numbers.firstOrNull { canSum(targetSum - it, numbers, memo) } != null
             result.apply { memo[targetSum] = this }
         }
     }
